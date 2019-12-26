@@ -13,40 +13,18 @@
 	<context:property-placeholder location="classpath:test.properties"/>
 
     <!-- Define your beans here -->
-    <bean id="trackCoach"
-    	class="com.luv2code.springdemo.TrackCoach">
+    <bean id="myCoach"
+    	class="com.luv2code.springdemo.TrackCoach"
+    	init-method="doMyStartupStuff"
+    	destroy-method="doMyStartupStuffYoYo">
+    	<!-- set up constructor injection -->
 		<constructor-arg ref="myFortune"></constructor-arg>
     </bean>
-
-	<bean id="baseballCoach"
-		class="com.luv2code.springdemo.BaseballCoach">
-		<!-- set up constructor injection-->
-		<constructor-arg ref="myFortune"></constructor-arg>
-	</bean>
-
-	<bean id="baseballCoach2"
-		class="com.luv2code.springdemo.BaseballCoach">
-		<!-- set up constructor injection-->
-		<constructor-arg ref="madFortune"></constructor-arg>
-	</bean>
-
-	<bean id="myCricketCoach"
-		class="com.luv2code.springdemo.CricketCoach">
-		<!-- Set up setter injection -->
-		<property name="fortuneService" ref="madFortune"></property>
-
-		<!-- Inject literal values -->
-		<property name="emailAddress" value="${test.email}"></property>
-
-	</bean>
 
 	<bean id="myFortune"
 		class="com.luv2code.springdemo.HappyFortuneService">
 	</bean>
 
-	<bean id="madFortune"
-		class="com.luv2code.springdemo.MadFortuneService">
-	</bean>
     <!-- define the dependency -->
 
 </beans>

@@ -18,7 +18,15 @@ public class TrackCoach implements Coach {
 		return "This one is in TrackCoach";
 	}
 
+	// add an init method
+	public void doMyStartupStuff() {
+		System.out.println("TrackCoach: first");
+	}
 
+	// add a destroy method
+	public void doMyStartupStuffYoYo() {
+		System.out.println("TrackCoach: second");
+	}
 }
 
 
